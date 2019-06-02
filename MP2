@@ -1,0 +1,160 @@
+#include <iostream>
+#include <conio.h>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    //just the intro.
+	cout<<"                             GREETINGS!"<<endl;
+ 	cout<<"                    WELCOME TO TRY A TRIANGLE!!!!!"<<endl;
+    cout<<" "<<endl;
+    cout<<"----------------------------------------------------------------"<<endl;
+    
+	//the variable here were place here.
+    double a;
+    double b;
+    double c;
+   	double base, height, hypotenuse, area, perimeter; 
+    double angle, angler, anglest;
+    int circumcenter, apothem;
+	   
+	//to know the length of the sides of the triangle.
+    cout<<"Length a: ";
+    cin >>a;
+    cout<<"Length b: ";
+    cin >>b;
+    cout<<"Length c: ";
+    cin >>c;
+
+	//this is to know which one is the hypotenuse.
+	//used to classify the sides.
+	if ( a >= b && a >= c)
+	{
+		hypotenuse = a;
+		if ( b >= c)
+		{
+			height = b;
+			base = c;
+		}
+		else if( c >= b)
+		{
+			height = c;
+			base = b;
+		}
+	}
+   	else if (b >= a && b >= c)
+   	{
+   		hypotenuse = b;
+		if ( a >= c)
+		{
+			height = a;
+			base = c;
+		}
+		else if( c >= a)
+		{
+			height = c;
+			base = a;
+		}
+	}
+	else if (c >= a && c >= a)
+	{
+		hypotenuse = c;
+		if ( b >= a)
+		{
+			height = b;
+			base = a;
+		}
+		else if( a >= b)
+		{
+			height = a;
+			base = b;
+		}
+	}
+	else
+	{
+	cout<<"NA"<<endl;
+	}
+
+	cout<<" "<<endl;
+	cout<<"----------------------------------------------------------------"<<endl;
+	cout<<"Base =      "<<base<<endl;
+	cout<<"Height=     "<<height<<endl;
+	cout<<"Hypotenuse= "<<hypotenuse<<endl;
+   	cout<<" "<<endl;
+   	cout<<"----------------------------------------------------------------"<<endl;
+   	
+	//formulas
+   	area= (base*height)/2;
+   	perimeter= base+height+hypotenuse;
+   	angle   = ((acos(((height*height)+(hypotenuse*hypotenuse)-(base*base))/(2*height*hypotenuse)))*180)/3.14;
+   	angler  = ((acos(((hypotenuse*hypotenuse)+(base*base)-(height*height))/(2*hypotenuse*base)))*180)/3.14;
+   	anglest = 180-(angle+angler);
+	circumcenter = (base*height*hypotenuse)/sqrt((base+height+hypotenuse)*(base+ height-hypotenuse)*(hypotenuse+base-height)*(base+height-hypotenuse));
+	apothem = (base)/(2*tan(180/3));
+	
+	//this is to know whether the triangle is isosceles, equilateral or scalene.
+   	cout<<"The Triangle Is: ";
+    if (base == height && height != hypotenuse || base == hypotenuse && height != hypotenuse)
+    {    
+	cout<<"Isosceles!"<<endl;
+   	}
+  	if (base == height && height == hypotenuse && base == hypotenuse) 
+	{    
+	cout<<"Equilateral"<<endl;
+	}
+    if (base!=height && base!=hypotenuse && height!=hypotenuse)
+    {
+    cout<<"Scalene"<<endl;
+	}
+	
+	
+	//this is because some combination of sides are not a triangle.
+	if (base + height <= hypotenuse)
+	{
+	cout<<"----------------------------------------------------------------"<<endl;
+	cout<<" "<<endl;
+	cout<<"ERROR! ERROR! ERROR! lengths doesn't form a triangle." << endl;
+	cout<<" "<<endl;
+	cout<<"----------------------------------------------------------------"<<endl;
+	}
+	
+	cout<<"Its Area Is:      "<<area<<endl;
+	cout<<"Its Perimeter Is: "<<perimeter<<endl;
+	cout<<" "<<endl;
+	cout<<"Its angles are"<<endl;
+	cout<<"A: "<<angle<<endl;
+	cout<<"B: "<<angler<<endl;
+	cout<<"C: "<<anglest<<endl;
+	cout<<" "<<endl;
+	if (anglest < 89.9300)
+	{
+	cout<<"Its An Acute Triangle"<<endl;
+	}
+	else if (anglest >= 89.9300 && anglest <= 90.0700)
+	{
+	cout<<"Its A Right Triangle"<<endl;
+	}
+	else if (anglest > 90.0700)
+	{
+	cout<<"Its An Obtuse Triangle"<<endl;
+	}
+	cout<<" "<<endl;
+	cout<<"----------------------------------------------------------------"<<endl;
+	
+	cout<<"Its Circumcenter Is:"<<circumcenter<<endl;
+	
+	if (base==height && height==hypotenuse)
+	{
+	cout<<"Its Apothem is:     "<<apothem<<endl;
+	}
+	else if (base != height && height != hypotenuse)
+	{
+	cout<<" "<<endl;
+	cout<<"TRIANGLE MUST BE EQUILATERAL FOR APOTHEM TO BE CALCULATED"<<endl;
+	}
+	
+	getch();
+	return 0;
+   
+}
