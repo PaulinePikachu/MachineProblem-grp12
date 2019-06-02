@@ -1,0 +1,162 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{
+ 	//the variables
+ 	string name[50];
+ 	double finalist[50];
+	int i;
+	int experiment[9];
+	double total1, ave1, aver1;
+	int skillz[9];
+	double total2, ave2, aver2;
+	int mach[2];
+	double total3, ave3, aver3;
+    int pe , fe;
+    double ave4, ave5,totale;
+	double GeneralAverage;
+
+	//just the intro
+	cout<<"                 WELCOME TO GRADE KEEPER"<<endl;
+	cout<<"------------------------------------------------------------------------"<<endl;
+	cout<<"Enter Name Of The Student:" <<endl;
+	//big loop
+	  for (i = 0; i < 50; i++)
+    {
+        cout << i + 1 << ") ";
+        getline(cin,name[i]);
+		cout<<endl; 
+
+
+	//to input for the experiments
+	cout<<"Enter The Grade Of The Student For The Experiments - 100 pts each only: " << endl;
+	      for (int i = 0; i < 9; i ++)
+        {
+
+            cout << "Experiment  "<< i+1 <<" = "; cin >> experiment[i];
+	    }
+  
+    
+    total1 = experiment[0] + experiment[1] + experiment[2] + experiment[3] + experiment[4] + experiment[5] + experiment[6] + experiment[7] + experiment[8]; 
+    ave1 = total1/9;
+    aver1 = ave1 * .10;
+	cout<<"The Grade For The Experiment = "<<aver1<<endl;
+	cout<<" "<<endl;
+	cout<<"------------------------------------------------------------------------";
+
+	//to input for the skills test
+	cout<<"Enter The Grade Of The Student For The Skills Test - 100 pts each only " << endl;
+	
+	      for (int i = 0; i < 9; i ++)
+        {
+
+            cout << "Skills Test  "<< i+1 <<" = "; cin >> skillz[i];
+           
+       	
+	    }
+
+    total2 = skillz[0] + skillz[1] + skillz[2] + skillz[3] + skillz[4] + skillz[5] + skillz[6] + skillz[7] + skillz[8];
+    ave2 = total2/9;
+    aver2 = ave2 * .20;
+	cout << "The average of the experiments = " << aver2  << endl;
+	
+	cout<<" "<<endl;
+	cout<<"-------------------------------------------------------------------------"<<endl;
+
+    
+    
+
+	//to input for the machine problem
+	cout<<"Enter The Students Grade For Every Machine Problem - 100 pts each only" << endl;
+	
+	      for (int i = 0; i < 2; i ++)
+        {
+            cout << "Machine Problem  "<< i+1 <<" = "; cin >> mach[i];  
+	    }
+    total3 = mach[0] + mach[1];
+    ave3 = total3/2;
+    aver3 = ave3 * .20;
+	cout << "The average of the Machine Problems = " << aver3 << endl;
+	
+	cout<< endl;
+
+    
+	//to input for the exams
+    cout<<"Preliminary Exam Score - 100 pts only= ";
+    cin>> pe;
+    cout<<"Final Exam Score - 100 pts only= ";
+    cin>> fe;
+    
+    ave4 = pe * .20;
+    cout << "The Average Of The Preliminary Exam = " << ave4 <<endl;
+    ave5 = fe * .30;
+    cout << "The Average Of Final Exam = " << ave5 <<endl;
+    totale = ave4 + ave5;
+    cout << "The Total Average Score For Major Exams  = " << totale <<endl;
+
+    
+{
+
+    GeneralAverage = aver1 + aver2 + aver3 + totale;
+    cout<< endl;
+    cout<< "The average of the student = " << GeneralAverage <<endl;
+
+	//to know if you pass and fail
+	
+    if (GeneralAverage>= 95.57 || GeneralAverage==100)
+    {
+	cout<<"Congratulations "<<name[i] <<" your grade is = 1.00 - Passed" ;
+	}
+	else if (GeneralAverage>= 91.12 || GeneralAverage==95.56)
+    {
+	cout<<"Congratulations "<<name[i] <<" your grade is = 1.25 - Passed" ;
+	}
+	else if (GeneralAverage>= 86.68 || GeneralAverage==91.11)
+    {
+	cout<<"Congratulations "<<name[i] <<" your grade is = 1.50 - Passed" ;
+	}	
+	else if (GeneralAverage>= 82.23 || GeneralAverage==86.67)
+    {
+	cout<<"Congratulations "<<name[i] <<"= your grade is 1.75 - Passed" ;
+	}
+	else if (GeneralAverage>= 77.79 || GeneralAverage==82.22)
+    {	
+	cout<<"Congratulations "<<name[i] <<" your grade is = 2.00 - Passed" ;
+	}	
+	else if (GeneralAverage>= 73.34 || GeneralAverage==77.78)
+    {
+	cout<<"Congratulations "<<name[i] <<" your grade is = 2.25 - Passed" ;
+	}
+	else if (GeneralAverage>= 68.90 || GeneralAverage==73.33)
+    {
+	cout<<"Congratulations "<<name[i] <<" your grade is = 2.50 - Passed" ;
+	}
+	else if (GeneralAverage>= 64.45 || GeneralAverage==68.89)
+    {
+	cout<<"Congratulations "<<name[i]<<" your grade is = 2.75 - Passed" ;
+	}
+	else if (GeneralAverage>= 60.00 || GeneralAverage==64.44)
+    {
+	cout<<"Congratulations " <<name[i] <<" your grade is = 3.00 - Passed" ;
+	}
+	else 
+    {
+	cout<<"Sorry " <<name[i] <<" your grade is = 5.00 - Failed" ;
+	}
+	}	
+	
+	cout<<endl;
+	cout << "Student Name: " << endl;
+	finalist[i+1]=GeneralAverage;
+	getline(cin,name[i+1]);
+	
+	//end of big loop
+	}
+	
+	
+
+    return 0;
+    }
+
